@@ -1,0 +1,42 @@
+<!-- index.html --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Playlist Downloader</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>YouTube Playlist Downloader</h1>
+    <div class="status" id="status">Waiting for input...</div>
+    <form id="download-form" method="POST" action="/download">
+      <input type="text" name="url" placeholder="Enter Playlist URL" required />
+      <select name="resolution">
+        <option value="720p">720p</option>
+        <option value="480p">480p</option>
+        <option value="360p">360p</option>
+      </select>
+      <div class="buttons">
+        <button type="submit">Download Playlist</button>
+        <button type="button" onclick="stopDownload()">Stop</button>
+      </div>
+    </form>
+    <h2>Progress</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="progress-table">
+        <!-- Video download progress will appear here -->
+      </tbody>
+    </table>
+  </div>  <script>
+    function stopDownload() {
+      document.getElementById("status").textContent = "Download stopped by user.";
+    }
+  </script></body>
+  </html>
